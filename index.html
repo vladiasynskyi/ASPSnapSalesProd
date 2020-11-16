@@ -1,0 +1,142 @@
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+<body>
+	<div align="center">
+		<h2 style="color:#0f4631;">Embedded Sales Code Snipped PROD</h2>
+	</div>
+<style type='text/css'>
+	.embeddedServiceHelpButton .helpButton .uiButton {
+		background-color: #4C9E92;
+		font-family: "Salesforce Sans", sans-serif;
+	}
+	.embeddedServiceHelpButton .helpButton .uiButton:focus {
+		outline: 1px solid #4C9E92;
+	}
+	@font-face {
+		font-family: 'Salesforce Sans';
+		src: url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.woff') format('woff'),
+		url('https://c1.sfdcstatic.com/etc/clientlibs/sfdc-aem-master/clientlibs_base/fonts/SalesforceSans-Regular.ttf') format('truetype');
+	}
+</style>
+
+<script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+<script type='text/javascript'>
+	var initESW = function(gslbBaseURL) {
+		embedded_svc.settings.displayHelpButton = true;
+		embedded_svc.settings.language = 'no';
+		embedded_svc.settings.defaultMinimizedText = 'Live Chat';
+		embedded_svc.settings.disabledMinimizedText = 'Offline';
+    embedded_svc.settings.loadingText = 'Laster';
+		
+		
+		embedded_svc.settings.extraPrechatInfo = [{
+		  "entityName": "Contact",
+		  "showOnCreate": true,
+		  "saveToTranscript": "Contact",
+		  "entityFieldMaps": [{
+		    "isExactMatch": true,
+		    "fieldName": "Email",
+		    "doCreate": false,
+		    "doFind": true,
+		    "label": "E-post"
+		  },{
+		    "isExactMatch": false,
+		    "fieldName": "FirstName",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Fornavn"
+		  },{
+		    "isExactMatch": false,
+		    "fieldName": "LastName",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Etternavn"
+		  }]
+		},{
+		  "entityName": "Case",
+		  "showOnCreate": true,
+		  "saveToTranscript": "",
+		  "entityFieldMaps": [
+		  {
+		    "isExactMatch": false,
+		    "fieldName": "Origin",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Case Origin"
+		  }, {
+		    "isExactMatch": false,
+		    "fieldName": "Subject",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Emne"
+		  }, {
+		    "isExactMatch": false,
+		    "fieldName": "SuppliedEmail",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "E-post"
+		  }, {
+		    "isExactMatch": false,
+		    "fieldName": "SuppliedName",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Fornavn"
+		  }]
+		},{
+		  "entityName": "Lead",
+		  "saveToTranscript": "Lead",
+		  "entityFieldMaps": [
+		  {
+		    "isExactMatch": true,
+		    "fieldName": "Email",
+		    "doCreate": false,
+		    "doFind": true,
+		    "label": "E-post"
+		  },{
+		    "isExactMatch": false,
+		    "fieldName": "FirstName",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Fornavn"
+		  },{
+		    "isExactMatch": false,
+		    "fieldName": "LastName",
+		    "doCreate": false,
+		    "doFind": false,
+		    "label": "Etternavn"
+		  }]
+		}];
+
+		
+
+		embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+		embedded_svc.settings.entryFeature = 'LiveAgent';
+
+    embedded_svc.init(
+			'https://aspit.my.salesforce.com',
+			'https://aspit.secure.force.com/listener',
+			gslbBaseURL,
+			'00D2p0000013hMg',
+			'Sales_Chat',
+			{
+				baseLiveAgentContentURL: 'https://c.la1-c2-cdg.salesforceliveagent.com/content',
+				deploymentId: '5722p000000PRIP',
+				buttonId: '5732p0000000Gvk',
+				baseLiveAgentURL: 'https://d.la1-c2-cdg.salesforceliveagent.com/chat',
+				eswLiveAgentDevName: 'EmbeddedServiceLiveAgent_Parent04I2p000000kBPsEAM_175d20ea799',
+				isOfflineSupportEnabled: false
+			}
+		);
+	};
+  
+  if (!window.embedded_svc) {
+		var s = document.createElement('script');
+		s.setAttribute('src', 'https://aspit.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+		s.onload = function() {
+			initESW(null);
+		};
+		document.body.appendChild(s);
+	} else {
+		initESW('https://service.force.com');
+	}
+</script>
+</body>
